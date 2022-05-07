@@ -1,0 +1,35 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "json schema test01",
+	"definitions": {
+		"string-non-empty": { "type": "string", "minLength": 1 },
+		"string-allow-empty": { "type": "string", "minLength": 0 },
+		"string-ends-with-dot-json": { "type": "string", "pattern": "\\.json$" }
+	},
+	"properties": {
+		"str0": {
+			"title": "str0",
+			"description": "str0 description",
+			"$ref": "#/definitions/string-allow-empty",
+			"default": ""
+		},
+		"str1": {
+			"title": "str1",
+			"description": "str1 description",
+			"$ref": "#/definitions/string-non-empty",
+			"default": "hello"
+		},
+		"strJson": {
+			"title": "strJson",
+			"description": "strJson description",
+			"$ref": "#/definitions/string-ends-with-dot-json",
+			"default": "hello.json"
+		},
+		"flag": {
+			"title": "flag",
+			"description": "some flag description",
+			"type": "boolean",
+			"default": false
+		}
+	}
+}
